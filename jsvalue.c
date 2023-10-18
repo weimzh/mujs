@@ -525,7 +525,7 @@ void js_newcconstructor(js_State *J, js_CFunction cfun, js_CFunction ccon, const
 	}
 }
 
-void js_newuserdatax(js_State *J, const char *tag, void *data, js_HasProperty has, js_Put put, js_Delete delete, js_Finalize finalize)
+void js_newuserdatax(js_State *J, const char *tag, void *data, js_HasProperty has, js_Put put, js_Delete del, js_Finalize finalize)
 {
 	js_Object *prototype = NULL;
 	js_Object *obj;
@@ -539,7 +539,7 @@ void js_newuserdatax(js_State *J, const char *tag, void *data, js_HasProperty ha
 	obj->u.user.data = data;
 	obj->u.user.has = has;
 	obj->u.user.put = put;
-	obj->u.user.delete = delete;
+	obj->u.user.del = del;
 	obj->u.user.finalize = finalize;
 	js_pushobject(J, obj);
 }
